@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import 조직개편 from "@/app/components/기안하기/조직개편/조직개편";
 import 근무신청 from "@/app/components/기안하기/근무신청/근무신청";
+import FileAttachment from "./FileAttachment";
 
 const urlToComponent = (type: string) => {
   switch (type) {
@@ -13,7 +16,7 @@ const urlToComponent = (type: string) => {
   }
 };
 
-export default function page({ params }: { params: { type: string } }) {
+export default function ApprovalPage({ params }: { params: { type: string } }) {
   const Approval: () => JSX.Element = () => {
     const components = {
       조직개편: <조직개편 />,
@@ -25,6 +28,12 @@ export default function page({ params }: { params: { type: string } }) {
   return (
     <div>
       <Approval />
+      <FileAttachment
+        id="file-input"
+        nowSize={0}
+        onChange={() => {}}
+        onError={() => {}}
+      />
     </div>
   );
 }
